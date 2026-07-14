@@ -21,6 +21,6 @@ export interface ActivityRecord {
 }
 
 export interface ChartPoint {
-  label: string;
+  name: string;
   value: number;
 }

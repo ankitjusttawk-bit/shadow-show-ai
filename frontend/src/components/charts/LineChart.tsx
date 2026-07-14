@@ -8,16 +8,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+import type { ChartPoint } from "../../types/dashboard";
+
 type LineChartProps = {
-  data: Record<string, unknown>[];
-  xKey: string;
-  yKey: string;
+  data: ChartPoint[];
 };
 
 export default function LineChart({
   data,
-  xKey,
-  yKey,
 }: LineChartProps) {
   return (
     <div className="h-80 w-full">
@@ -25,7 +23,7 @@ export default function LineChart({
         <RechartsLineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
 
-          <XAxis dataKey={xKey} />
+          <XAxis dataKey="name" />
 
           <YAxis />
 
@@ -33,7 +31,7 @@ export default function LineChart({
 
           <Line
             type="monotone"
-            dataKey={yKey}
+            dataKey="value"
             stroke="#3B82F6"
             strokeWidth={3}
             dot={false}
